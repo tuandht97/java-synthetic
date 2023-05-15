@@ -1,3 +1,5 @@
+package org.example;
+
 public class CompareVersions {
 
     public static int compareVersions(String version1, String version2) {
