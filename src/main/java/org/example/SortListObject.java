@@ -45,6 +45,36 @@ public class SortListObject {
         animals.add(new Animal("Luna", "Cat"));
         animals.add(new Animal("Rex", "Dog"));
 
+     //   sortByName(animals);
+
+        sortByTypeAndName(animals);
+    }
+
+    private static void sortByTypeAndName(List<Animal> animals) {
+        // Use the stream method on the list to create a stream of animals
+        // Use the collect method on the stream to collect the animals into a map that maps each type to a list of animals of that type, using the groupingBy collector
+        Map<String, List<Animal>> map = animals.stream()
+                .collect(Collectors.groupingBy(Animal::getType));
+
+        // Use the entrySet method on the map to create a set of entries that contain the type and the list of animals
+        // Use the stream method on the set to create a stream of entries
+        // Use the sorted method on the stream to sort the entries by type using a comparator
+        // Use the map method on the stream to transform each entry into a list of animals
+        // Use the flatMap method on the stream to flatten the lists of animals into a single stream of animals
+        // Use the sorted method on the stream to sort the animals by name using a comparator
+        // Use the collect method on the stream to collect the animals into a list
+        List<Animal> sortedAnimals = map.entrySet().stream()
+                .sorted(Comparator.comparing(Map.Entry::getKey))
+                .map(Map.Entry::getValue)
+                .flatMap(List::stream)
+                .sorted(Comparator.comparing(Animal::getName))
+                .collect(Collectors.toList());
+
+        // Print the list of animals
+        System.out.println(sortedAnimals);
+    }
+
+    private static void sortByName(List<Animal> animals) {
         // Use the stream method on the list to create a stream of animals
         // Use the collect method on the stream to collect the animals into a map that maps each type to a list of animals of that type, using the groupingBy collector
         Map<String, List<Animal>> map = animals.stream()
@@ -59,11 +89,5 @@ public class SortListObject {
             // Print the type and the sorted list
             System.out.println(type+": "+sortedList);
         });
-
-        // Output:
-        // Lion: [Leo]
-        // Cat: [Luna, Mia]
-        // Dog: [Max, Rex]
-        // Zebra: [Zoe]
     }
 }

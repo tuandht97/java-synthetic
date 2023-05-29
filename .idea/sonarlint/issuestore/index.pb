@@ -9,12 +9,8 @@ T
 $src/main/java/selenium/BasePage.java,4\f\4f240aed7a053a911fdcb344b95707a7182319c6
 _
 /src/main/java/org/example/SteganographyImg.java,c\e\ce63b9729f828054730ff0f48b5761469aa4259b
-S
-#src/main/java/org/example/Main.java,0\b\0ba1b9c7a4878802f938e331cc2d8a042087ec6b
 b
 2src/main/java/org/example/DownloadAndZipLinux.java,f\d\fd9339f2b9346d43ce6ff35946a8d9cf46c22620
-U
-%src/main/java/selenium/TestLogin.java,4\c\4c0380df13bdde637b699514418ad8827b1f0375
 W
 'src/main/java/org/example/Paginate.java,b\a\ba061c3bc9a578aa578617289e68251209348e1a
 \
@@ -23,5 +19,3 @@ X
 (gradle/wrapper/gradle-wrapper.properties,f\b\fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
 ?
 settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
-Z
-*src/main/java/org/example/DownloadAPI.java,b\0\b07aaa6c90e41dbbb61dda9edaf49a3dbfb1bf04
