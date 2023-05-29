@@ -40,10 +40,31 @@ public class LoginTest {
         assertTrue(loginPage.isLoaded());
         loginPage.login("0110210190_ben", "wrong_password_test");
         String errorMessage = loginPage.getErrorMessage();
+
         String a = "Tài khoản không hợp lệ";
+
+        String detectedCharset = charset(a, new String[] { "ISO-8859-1", "UTF-8" });
+
         byte[] bytes = a.getBytes(StandardCharsets.ISO_8859_1);
         String utf8String = new String(bytes, StandardCharsets.UTF_8);
         assertEquals(errorMessage, utf8String);
+    }
+
+    public String convert(String value, String fromEncoding, String toEncoding) throws UnsupportedEncodingException {
+        return new String(value.getBytes(fromEncoding), toEncoding);
+    }
+
+    public String charset(String value, String charsets[]) throws UnsupportedEncodingException {
+        String probe = StandardCharsets.UTF_8.name();
+        for(String c : charsets) {
+            Charset charset = Charset.forName(c);
+            if(charset != null) {
+                if(value.equals(convert(convert(value, charset.name(), probe), probe, charset.name()))) {
+                    return c;
+                }
+            }
+        }
+        return StandardCharsets.UTF_8.name();
     }
 
     String decodeText(String input, Charset charset,

@@ -23,6 +23,8 @@ dependencies {
     // https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox
     implementation group: 'org.apache.pdfbox', name: 'pdfbox', version: '2.0.28'
 
+    // https://mvnrepository.com/artifact/io.minio/minio
+    implementation group: 'io.minio', name: 'minio', version: '8.5.2'
 }
 
 test {
