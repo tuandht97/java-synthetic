@@ -1,5 +1,6 @@
 package org.learn;
 
+
 public class BestTimeToBuyAndSellStock {
 
     private static int maxProfit(int[] prices) {
